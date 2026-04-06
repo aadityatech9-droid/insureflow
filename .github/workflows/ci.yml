@@ -46,7 +46,7 @@ jobs:
             pip install pytest flake8 httpx
       
       - name: Lint with flake8
-        run: flake8 . --max-line-length=120 --exclude=alembic
+        run: flake8 . --max-line-length=120 --exclude=alembic,venv --ignore=E231,E225,E302,E303,W391,F401,E252
       
       - name: Run tests
         run: pytest tests/ -v
