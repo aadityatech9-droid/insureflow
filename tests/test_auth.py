@@ -2,7 +2,6 @@ from dotenv import load_dotenv
 load_dotenv('.env.test',override=True)
 
 
-from typing import override
 from httpx import Client
 import pytest
 from fastapi.testclient import TestClient
