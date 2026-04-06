@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+import os 
 load_dotenv('.env.test',override=True)
 
 
@@ -12,7 +13,7 @@ from main import app
 from app.core.database import Base, get_db
 from app.core.config import settings
 
-engine=create_engine(settings.DATABASE_URL)
+engine=create_engine(os.getenv("DATABASE_URL"))
 TestingSessionLocal=sessionmaker(bind=engine)
 
 def override_get_db():
