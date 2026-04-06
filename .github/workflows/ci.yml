@@ -42,7 +42,7 @@ jobs:
       
       - name: Install Dependencies
         run:  |
-            pip install -r requirements.txt
+            pip install -r requirement.txt
             pip install pytest flake8 httpx
       
       - name: Lint with flake8
