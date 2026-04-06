@@ -1,6 +1,9 @@
+import os
+os.environ["DATABASE_URL"] = "postgresql://postgres:password@localhost:5432/insureflow_test"
+os.environ["SECRET_KEY"] = "test-secret-key"
+
 from dotenv import load_dotenv
-import os 
-load_dotenv('.env.test',override=True)
+load_dotenv('.env.test',override=False)
 
 
 from httpx import Client
