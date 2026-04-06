@@ -2,25 +2,25 @@ name: InsureFlow CI
 
 on:
   push:
-    branches:['main']
+    branches: ['main']
   pull_request:
 
 jobs:
   test:
-    runs-on:ubuntu-latest
+    runs-on: ubuntu-latest
 
     services:
       postgres:
-        image:postgres:15
+        image: postgres:15
         env:
-          POSTGRES_DB:insureflow_test
-          POSTGRES_USER:postgres
-          POSTGRES_PASSWORD:password
+          POSTGRES_DB: insureflow_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
         ports:
           - 5432:5432
     
       redis:
-        image:redis:7
+        image: redis:7
         ports:
           - 6379:6379
       
@@ -41,13 +41,13 @@ jobs:
             python-version: "3.11"
       
       - name: Install Dependencies
-        run: |
-            pip install -r rquirement.txt
+        run:  |
+            pip install -r requirements.txt
             pip install pytest flake8 httpx
       
       - name: Lint with flake8
-        run: flake9 . --max-line-length=120 --exclude=alembic
+        run: flake8 . --max-line-length=120 --exclude=alembic
       
-      -name: Run tests
-       run: pytest tests/ -v
+      - name: Run tests
+        run: pytest tests/ -v
   
